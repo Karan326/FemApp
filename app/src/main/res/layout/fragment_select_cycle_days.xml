@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.SelectCycleDays">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/topLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/goToCycle"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="6dp" />
+
+        <!--
+            <SeekBar
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/trackCycleSeekbar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+
+                \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////
+
+                  app:hdMaxValue="10"
+                app:hdEmptyColor="@color/empty"
+                app:hdProgressColor="@color/progress"
+                app:hdProgressClickColor="@color/progress_click"
+                app:hdPinBackgroundColor="@color/pin_background"
+                app:hdPinTextColor="@color/pin_text"
+                app:hdPinPaddingBottom="5dp"
+                   app:hdProgressDisableColor="@color/progress_disable"
+
+
+
+
+
+                ////////////////////////////////////////////
+
+                android:layout_margin="20dp"/>-->
+
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/goToDate"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="four"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/cycleSeekbar"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateForegroundColor="#FF69B4"
+            app:spb_stateNumberBackgroundColor="#808080"
+            app:spb_stateNumberForegroundColor="#fff"
+            app:spb_currentStateDescriptionColor="#FF69B4"
+            app:spb_stateDescriptionColor="#808080"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:text="On average, how long is your cycle?"
+        android:textAlignment="center"
+        android:textColor="#111"
+        android:textSize="15sp"
+        android:id="@+id/cycleTextView"
+        android:padding="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/topLayout"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/cycleTextView"
+        app:layout_constraintBottom_toTopOf="@+id/cycleRadioButton">
+
+
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/cyclenumber_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:np_width="80dp"
+            app:np_height="180dp"
+            app:np_dividerColor="@color/colorPrimary"
+            app:np_max="59"
+            app:np_min="0"
+            app:np_selectedTextColor="@color/colorPrimary"
+            app:np_selectedTextSize="25sp"
+            app:np_textColor="@color/colorPrimary"
+            app:np_textSize="20sp"
+            app:np_textAlign="textAlignCenter"
+            app:np_value="3"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I don't remember"
+        android:padding="15dp"
+        android:id="@+id/cycleRadioButton"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/cycleNextButton"
+        android:background="@drawable/restore_button_bg"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:visibility="gone"
+        android:padding="15dp"
+        android:textColor="#fff"
+        android:id="@+id/cycleNextButton"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorPrimaryDark"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/presentpx"
+        android:id="@+id/todayMenu"
+        android:title="Today"/>
+
+    <item
+        android:icon="@drawable/plannerx"
+        android:id="@+id/calenderMenu"
+        android:title="Calender"/>
+
+    <item
+        android:icon="@drawable/ideasharingpx"
+        android:id="@+id/insightMenu"
+        android:title="Insights"/>
+
+    <item
+        android:icon="@drawable/menuverticalpx"
+        android:id="@+id/moreMenu"
+        android:title="More"/>
+
+</menu>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.SelectDateFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/topLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backToOptions"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="6dp" />
+
+        <!--
+            <SeekBar
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/trackCycleSeekbar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+
+                \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////
+
+                  app:hdMaxValue="10"
+                app:hdEmptyColor="@color/empty"
+                app:hdProgressColor="@color/progress"
+                app:hdProgressClickColor="@color/progress_click"
+                app:hdPinBackgroundColor="@color/pin_background"
+                app:hdPinTextColor="@color/pin_text"
+                app:hdPinPaddingBottom="5dp"
+                   app:hdProgressDisableColor="@color/progress_disable"
+
+
+
+
+
+                ////////////////////////////////////////////
+
+                android:layout_margin="20dp"/>-->
+
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/backToOptions"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="four"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/trackCycleSeekbar"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateForegroundColor="#FF69B4"
+            app:spb_stateNumberBackgroundColor="#808080"
+            app:spb_stateNumberForegroundColor="#fff"
+            app:spb_currentStateDescriptionColor="#FF69B4"
+            app:spb_stateDescriptionColor="#808080"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/topLayout"
+        app:layout_constraintBottom_toTopOf="@+id/dontRememeberRadioButton">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="When did your last period start?"
+            android:textAlignment="center"
+            android:textColor="#111"
+            android:textSize="15sp"
+            android:id="@+id/whenDidYourLatPeriodTextView"
+            android:padding="6dp"/>
+
+        <DatePicker
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:id="@+id/periodDatePicker"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/whenDidYourLatPeriodTextView"
+            android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+<RadioButton
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="I don't remember"
+android:padding="15dp"
+android:id="@+id/dontRememeberRadioButton"
+android:gravity="center"
+app:layout_constraintBottom_toTopOf="@+id/nextButton"
+android:background="@drawable/restore_button_bg"/>
+
+<Button
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Next"
+android:visibility="gone"
+android:padding="15dp"
+android:textColor="#fff"
+android:id="@+id/nextButton"
+android:gravity="center"
+app:layout_constraintBottom_toBottomOf="parent"
+android:background="@color/colorPrimaryDark"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
