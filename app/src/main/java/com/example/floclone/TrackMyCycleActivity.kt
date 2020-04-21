@@ -32,7 +32,6 @@ class TrackMyCycleActivity : AppCompatActivity() {
 
 
 
-
         if (savedInstanceState==null){
 
             supportFragmentManager.beginTransaction().replace(R.id.CycleContainerLayout, SelectDateFragment()).addToBackStack(null).commit()

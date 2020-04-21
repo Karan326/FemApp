@@ -1,9 +1,11 @@
 package com.example.floclone
 
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -13,14 +15,26 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val handler:Handler=Handler();
+        val handler:Handler=Handler()
 
         handler.postDelayed(object : Runnable {
             override fun run() {
 
-                intent= Intent(applicationContext,MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                if (getData()){
+
+                    intent= Intent(applicationContext,UserMainScreen::class.java)
+                    startActivity(intent)
+                    finish()
+
+                }else{
+
+                    intent= Intent(applicationContext,MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
+                }
+
+
 
 
             }
@@ -29,4 +43,19 @@ class SplashActivity : AppCompatActivity() {
         },timeout)
 
     }
+
+    fun  getData() : Boolean{
+
+        val startUpPreferences: SharedPreferences =applicationContext!!.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val isItSaved :Boolean= startUpPreferences.getBoolean("saved",false)
+
+        return isItSaved
+
+
+
+    }
+
+
+
+
 }

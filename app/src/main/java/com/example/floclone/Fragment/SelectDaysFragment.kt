@@ -2,6 +2,8 @@ package com.example.floclone.Fragment
 
 
 import android.content.ContentValues.TAG
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -28,6 +30,7 @@ class SelectDaysFragment : Fragment() {
     lateinit var radioButton: RadioButton
     lateinit var numberPicker: NumberPicker
 
+    var themDays:Int=0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,7 +55,9 @@ class SelectDaysFragment : Fragment() {
 
         // Using string values
        // IMPORTANT! setMinValue to 1 and call setDisplayedValues after setMinValue and setMaxValue
-        val data = arrayOf("1", "2", "3", "4", "5","Select Days", "6", "7", "8", "9","10","11","12")
+        val data = arrayOf("1 Day", "2 Days", "3 Days", "4 Days", "5 Days",
+            "Select Days", "6 Days", "7 Days", "8 Days", "9 Days","10 Days",
+            "11 Days","12 Days ","13 Days","14 Days")
         val input= arrayOf(R.array.period_days)
 
         numberPicker.minValue = 1
@@ -87,8 +92,14 @@ class SelectDaysFragment : Fragment() {
         imageView.setOnClickListener(object : View.OnClickListener {
 
             override fun onClick(p0: View?) {
+
                 getActivity()!!.supportFragmentManager.beginTransaction().replace(R.id.CycleContainerLayout, SelectDateFragment()).addToBackStack(null).commit()
 
+                val prefs: SharedPreferences = context!!.getSharedPreferences("start", Context.MODE_PRIVATE)
+                val editor : SharedPreferences.Editor =prefs.edit()
+
+                editor.clear()
+                editor.commit()
             }
 
 
@@ -115,7 +126,7 @@ class SelectDaysFragment : Fragment() {
 
             Log.d(TAG, String.format(Locale.US, "oldVal: %d, newVal: %d", oldVal, newVal))
 
-           // numberPicker.removeViewAt(6)
+            //numberPicker.removeViewAt(6)
 
             val value:Int
 
@@ -132,20 +143,22 @@ class SelectDaysFragment : Fragment() {
             if (newVal < 6){
 
                 value= newVal
-              //  exactValue+1
 
-                Toast.makeText(container!!.context,"less:\t"+value+"\tdays",Toast.LENGTH_SHORT).show()
                 button.visibility=View.VISIBLE
 
+                themDays=value
 
             }else if (newVal>6){
 
                 value=newVal-1
 
-                Toast.makeText(container!!.context,""+value+"\tdays",Toast.LENGTH_SHORT).show()
                 button.visibility=View.VISIBLE
 
+                themDays=value
+
             }
+
+            Toast.makeText(container!!.context,""+themDays+"\tdays",Toast.LENGTH_SHORT).show()
 
 
 
@@ -160,10 +173,29 @@ class SelectDaysFragment : Fragment() {
                 radioButton.visibility=View.GONE
                 button.visibility=View.GONE
 
+                saveDays()
+
             }
         })
 
         return view
+    }
+
+    fun saveDays(){
+
+
+        val prefs:SharedPreferences= context!!.getSharedPreferences("daysLog", Context.MODE_PRIVATE)
+        val editor : SharedPreferences.Editor =prefs.edit()
+
+        editor.putInt("days",themDays)
+
+        editor.commit()
+
+
+        Toast.makeText(context!!,""+themDays,Toast.LENGTH_LONG).show()
+
+
+
     }
 
 

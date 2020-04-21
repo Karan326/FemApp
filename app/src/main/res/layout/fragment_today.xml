@@ -13,10 +13,10 @@
         android:id="@+id/scroll_date_picker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:baseColor="@color/colorPrimary"
-        app:baseTextColor="@color/default_base_text"
+        app:baseColor="@color/colorAccent"
+        app:baseTextColor="#000"
         app:selectedColor="@color/colorAccent"
-        app:selectedTextColor="@color/colorPrimary"
+        app:selectedTextColor="#fff"
         app:showTitle="true"
         app:showFullDate="false"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -36,15 +36,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:textSize="12sp"
+            android:id="@+id/datedayInfo"
+            android:textSize="14sp"
             android:textColor="#fff"
-            android:text="Wednesday, December 18"
+            android:hint="Wednesday, December 18"
             android:textAlignment="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Period :"
+            android:text="Period in :"
             android:textColor="#fff"
             android:layout_margin="20dp"
             android:textSize="20sp"

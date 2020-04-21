@@ -14,7 +14,7 @@
         android:textAlignment="center"
         android:padding="8dp"
         android:layout_margin="40dp"
-        android:text="Welcome to Flo!\n How can we help You?"
+        android:text="Welcome!\n How can we help You?"
         android:textColor="#000"
         android:textSize="15sp"
         android:id="@+id/descriptionText"
@@ -35,7 +35,7 @@
         android:textColor="#fff"
         android:id="@+id/trackMyCycle"
         android:layout_marginRight="20dp"
-        android:text="Track my cycle\nDon't Plan to get pregnant right now"/>
+        android:text="Track my cycle\n"/>
 
     <TextView
         android:layout_width="match_parent"

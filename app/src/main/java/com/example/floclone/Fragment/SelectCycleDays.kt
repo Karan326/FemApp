@@ -2,6 +2,8 @@ package com.example.floclone.Fragment
 
 
 import android.content.ContentValues
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -30,6 +32,7 @@ class SelectCycleDays : Fragment() {
     lateinit var imageView: ImageView
     lateinit var radioButton: RadioButton
     lateinit var numberPicker: NumberPicker
+    var CycleDays:Int=0
 
 
     override fun onCreateView(
@@ -60,19 +63,24 @@ class SelectCycleDays : Fragment() {
         // Using string values
 // IMPORTANT! setMinValue to 1 and call setDisplayedValues after setMinValue and setMaxValue
         val data =
-            arrayOf("1", "2", "3", "4", "5", "Select Days", "6", "7", "8", "9", "10", "11", "12")
+            arrayOf(
+                "21 Days","22 Days","23 Days","24 Days","25 Days","26 Days","27 Days","28 Days","29 Days","30 Days",
+            "31 Days","32 Days","33 Days","34 Days","35 Days","36 Days","37 Days","38 Days","39 Days","40 Days",
+            "41 Days","42 Days","43 Days","44 Days","45 Days","46 Days","47 Days","48 Days","49 Days","50 Days",
+            "51 Days","52 Days","53 Days","54 Days","55 Days","56 Days","57 Days","58 Days","59 Days","60 Days",
+            "61 Days","62 Days","63 Days","64 Days","65 Days","66 Days","67 Days","68 Days","69 Days","70 Days",
+            "71 Days","72 Days","73 Days","74 Days","75 Days","76 Days","77 Days","78 Days","79 Days","80 Days",
+            "81 Days","82 Days","83 Days","84 Days","85 Days","86 Days","87 Days","88 Days","89 Days","90 Days",
+            "91 Days","92 Days","93 Days","94 Days","95 Days","96 Days","97 Days","98 Days","99 Days","100 Days")
+
         val input = arrayOf(R.array.period_days)
 
         numberPicker.minValue = 1
         numberPicker.maxValue = data.size
         numberPicker.displayedValues = data
-        numberPicker.value = 6
+        numberPicker.value = 1
 
-        /* // Set value
-             numberPicker.maxValue=59
-             numberPicker.minValue=0
-             numberPicker.value=3
-     */
+
 
         // Set fading edge enabled
         numberPicker.isFadingEdgeEnabled = true
@@ -110,6 +118,7 @@ class SelectCycleDays : Fragment() {
             override fun onClick(p0: View?) {
 
                 Toast.makeText(context, "You can choose Later", Toast.LENGTH_LONG).show()
+                button.visibility = View.VISIBLE
 
             }
 
@@ -117,51 +126,38 @@ class SelectCycleDays : Fragment() {
 
 
         // OnClickListener
-        numberPicker.setOnClickListener { Log.d(ContentValues.TAG, "Click on current value") }
+        numberPicker.setOnClickListener { Log.d(ContentValues.TAG, "Click on current value")
+
+
+
+        }
 
 
         // OnValueChangeListener
         numberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
 
-            Log.d(
-                ContentValues.TAG,
-                String.format(Locale.US, "oldVal: %d, newVal: %d", oldVal, newVal)
-            )
 
-            // numberPicker.removeViewAt(6)
+            if(newVal<=10){
 
-            val value: Int
-
-            if (newVal == 6) {
-
-                Toast.makeText(
-                    container!!.context,
-                    "Select a valid number of days",
-                    Toast.LENGTH_LONG
-                ).show()
-                button.visibility = View.GONE
-
-
-                return@setOnValueChangedListener
+                var value:Int=newVal+20
+                CycleDays=value
 
             }
 
-            if (newVal < 6) {
+            if(newVal<=80){
 
-                value = newVal
-                //  exactValue+1
+                var value:Int=newVal+20
+                CycleDays=value
 
-                Toast.makeText(container!!.context, "less:\t" + value + "\tdays", Toast.LENGTH_SHORT).show()
-
-
-            } else if (newVal > 6) {
-
-                value = newVal - 1
-
-                Toast.makeText(container!!.context, "" + value + "\tdays", Toast.LENGTH_SHORT).show()
-                button.visibility = View.VISIBLE
 
             }
+
+
+            button.visibility = View.VISIBLE
+
+            Toast.makeText(container!!.context, ""+CycleDays.toString()+"\t Days", Toast.LENGTH_SHORT).show()
+
+
 
 
         }
@@ -175,6 +171,17 @@ class SelectCycleDays : Fragment() {
 
                 radioButton.visibility = View.GONE
                 button.visibility = View.GONE
+
+
+                val prefs: SharedPreferences = context!!.getSharedPreferences("cycle", Context.MODE_PRIVATE)
+                val editor : SharedPreferences.Editor =prefs.edit()
+
+
+                editor.putInt("cycleDays",CycleDays)
+
+                editor.commit()
+
+
 
             }
         })

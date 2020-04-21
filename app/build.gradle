@@ -54,6 +54,8 @@ dependencies {
     implementation 'com.shawnlin:number-picker:2.4.8'
     //horizontal gastrik DayScrollDatePicker
     implementation 'com.github.gastricspark:scrolldatepicker:0.0.1'
+    //Cusomizable Calender
+    implementation 'com.andrewjapar.rangedatepicker:rangedatepicker:0.2.1'
 
 
 }
