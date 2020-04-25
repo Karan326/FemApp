@@ -1,5 +1,6 @@
 package com.example.floclone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -62,5 +63,17 @@ class UserMainScreen : AppCompatActivity() {
 
 
 }
+
+    override fun onBackPressed() {
+
+
+        intent= Intent(applicationContext,MainActivity::class.java)
+        startActivity(intent)
+        finish()
+
+
+
+        super.onBackPressed()
+    }
 
 }

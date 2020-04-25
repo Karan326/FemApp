@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/pinkybackground"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Content_Fragments.TodayFragment">
@@ -37,39 +38,52 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:id="@+id/datedayInfo"
-            android:textSize="14sp"
-            android:textColor="#fff"
+            android:textSize="16sp"
+            android:textColorHint="#000"
+            android:textColor="#000"
             android:hint="Wednesday, December 18"
             android:textAlignment="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Period in :"
-            android:textColor="#fff"
-            android:layout_margin="20dp"
-            android:textSize="20sp"
+            android:id="@+id/predictionStatement"
+            android:text="Period in"
+            android:textColor="#000"
+            android:layout_margin="5dp"
+            android:textSize="25sp"
             android:textAlignment="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/periodProgress"
             android:text="Day 1"
-            android:textColor="#fff"
-            android:layout_margin="10dp"
+            android:textColor="#000"
+            android:layout_margin="5dp"
             android:textSize="35sp"
             android:textAlignment="center"/>
 
         <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/periodProgressInfo"
+        android:text="Chances of getting pregnant is high"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:textAlignment="center"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Period Dates"
-            android:padding="7dp"
-            android:textColor="#fff"
+            android:text="Check Calender"
             android:background="@drawable/button_background"
-            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:padding="8dp"
+            android:layout_margin="5dp"
             android:textSize="16sp"
-
             android:textAlignment="center"/>
 
 
