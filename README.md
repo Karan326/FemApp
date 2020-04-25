@@ -5,7 +5,7 @@ The app can also calculate upcoming period days,Notifiy when the user has ovulat
 <image src="images/splash.png" width="400" height="800" />
 Splash Screen
 
-<image src="images/main.png" width="500" height="800" />
+<image src="images/main.png" width="400" height="800" />
 
 Option Selection by clicking the image
 
