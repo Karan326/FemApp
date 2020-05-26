@@ -4,7 +4,7 @@
     <item
         android:icon="@drawable/presentpx"
         android:id="@+id/todayMenu"
-        android:title="Today"/>
+        android:title="Log"/>
 
     <item
         android:icon="@drawable/plannerx"
@@ -14,7 +14,7 @@
     <item
         android:icon="@drawable/ideasharingpx"
         android:id="@+id/insightMenu"
-        android:title="Insights"/>
+        android:title="Tips"/>
 
     <item
         android:icon="@drawable/menuverticalpx"

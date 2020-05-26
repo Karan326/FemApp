@@ -4,12 +4,14 @@ package com.example.floclone.Content_Fragments
 import android.annotation.SuppressLint
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.floclone.R
 import com.harrywhewell.scrolldatepicker.DayScrollDatePicker
@@ -138,42 +140,26 @@ class TodayFragment : Fragment() {
         }
 
 
-
         val pref: SharedPreferences = context!!.getSharedPreferences("daysLog", MODE_PRIVATE)
         val days = pref.getInt("days",0)
 
-
-
         val cyclePref: SharedPreferences = context!!.getSharedPreferences("cycle", MODE_PRIVATE)
         val cycleDays = cyclePref.getInt("cycleDays",0)
-
-
 
         //Here I take the date when the cycle began and add it with the cycle days to know when the next will start
         val cal: Calendar = Calendar.getInstance()
         cal.set(year,month,day)
         cal.add(Calendar.DATE,cycleDays)
 
-        val next: Date =cal.time
-        
-      //  Toast.makeText(context,"NEXT :\t"+next, Toast.LENGTH_LONG).show()
-
 
         val date = Date(cal.timeInMillis)
         val sdf = SimpleDateFormat("dd-MMM-yyyy")
         println(sdf.format(date))
-        val tarehe = sdf.format(date.time)
-
-
 
         //Setting Current Day for Logs
         val stdf = SimpleDateFormat("dd MMMM yyyy")
         val currentDateandTime = stdf.format(Date())
         textView.text = currentDateandTime
-
-
-        //val difDays:Days = Days.daysBetween(tarehe, currentDateandTime).getDays()
-
 
 
        //Getting current date Today date
@@ -194,95 +180,128 @@ class TodayFragment : Fragment() {
         val start=LocalDate.of(mwaka,mwezi,siku)
         val difference=ChronoUnit.DAYS.between(start,end)
 
+        Toast.makeText(context,"Remaining days "+difference, Toast.LENGTH_LONG).show()
 
-        //Toast.makeText(context,"Remaining days "+difference, Toast.LENGTH_LONG).show()
 
+        //Ovulation usually occurs on the Mid days between the cycle days
+        //That is cycle days divided by 2
+        if (difference.toInt() == 14){
+
+            textView1.setText("Ovulation Day")
+            textView2.setText("High chance of getting pregnant")
+            textView3.setText("Get Ready for Ovulation")
+        }
+
+        //Getting pregnant before ovulation is almost impossible
+        //The ovum has't been Released yet so fertilization can't happen
         if (difference.toInt() <= 10){
-
 
             textView1.setText(difference.toString()+"\tDays")
             textView2.setText("Low chance of getting pregnant")
             textView3.setText("Period In :")
 
         }
-
+        //This is when the period starts on day 0 which is day one for the periods
         if (difference.toInt() == 0){
 
 
-
-            textView1.setText("Day\t"+1)
             textView2.visibility=View.GONE
-            textView3.setText("Knock Knock !\n Period Might start Today")
-
-            //Toast.makeText(context,"Days Diff\t"+Daysdifference, Toast.LENGTH_LONG).show()
-
+            textView1.visibility=View.GONE
+            textView3.setText("Period Might start Today")
 
         }
 
-        if (difference.toInt() == 14){
+        //So basically this is the Day the period begins and we have to calculate for the next too
+        if (difference.toInt() <= 0){
 
-
-            textView1.setText("Ovulation Day")
-            textView2.setText("High chance of getting pregnant")
-            textView3.setText("Get Ready for Ovulation")
-
-
+            predictFuture(cycleDays,days)
 
         }
 
 
-        if (difference.toInt() < 0){
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun predictFuture(cycleDays: Int, days: Int) {
+
+        Toast.makeText(context,"Days are"+days.toInt(), Toast.LENGTH_LONG).show()
+
+        //Showing the user which day of their period they are in
+        val calculate:Calendar= Calendar.getInstance()
+        calculate.add(Calendar.DATE,days)
+
+        val todayCalender:Calendar= Calendar.getInstance()
+        val todayDate=todayCalender.get(Calendar.DAY_OF_MONTH)
+        val todayMonth=todayCalender.get(Calendar.MONTH)
+        val todayYear=todayCalender.get(Calendar.YEAR)
+
+        val endPeriodDay=calculate.get(Calendar.DAY_OF_MONTH)
+        val endPeriodMonth=calculate.get(Calendar.MONTH)
+        val endPeriodYear=calculate.get(Calendar.YEAR)
+
+
+        val PeriodStarts=LocalDate.of(todayYear,todayMonth,todayDate)
+        val PeriodEnds=LocalDate.of(endPeriodYear,endPeriodMonth,endPeriodDay)
+
+
+        val calculatedDays=ChronoUnit.DAYS.between(PeriodStarts,PeriodEnds)
+
+
+        val number_of_days:Int=calculatedDays.toInt()
+        Toast.makeText(context,"Period will End in"+number_of_days.toInt()+"\t Days",Toast.LENGTH_LONG).show()
 
 
 
-            Toast.makeText(context,"Below Zero ", Toast.LENGTH_LONG).show()
+        //So basically here is day 1 of the period
+        //I want to calculate the next period when it'll begin
+        //I will still use the data achieved which was the cycle days
+
+        //Getting the Calender date for that day so that I can add the next Month Period
+        val  c:Calendar = Calendar.getInstance()
+        val siku:Int = c.get(Calendar.DAY_OF_MONTH)
+        val mwezi:Int= c.get(Calendar.MONTH)
+        val mwaka:Int= c.get(Calendar.YEAR)
+
+        //Here I take the date when the cycle began and add it with the cycle days to know when the next will start
+        val cal: Calendar = Calendar.getInstance()
+        cal.set(mwaka,mwezi,siku)
+        cal.add(Calendar.DATE,cycleDays)
 
 
-            //Getting current date Today date
-            val  calee:Calendar = Calendar.getInstance()
-            calee.add(Calendar.DATE,days)
-            val ends=calee.time
+        //getting the future cycle days after I added the period Days
+        val endDay:Int = cal.get(Calendar.DAY_OF_MONTH)
+        val endMonth:Int= cal.get(Calendar.MONTH)
+        val endYear:Int= cal.get(Calendar.YEAR)
 
-            //Getting current date Today date
-            val  cul:Calendar = Calendar.getInstance()
-            val periodCurrentDay:Int = cul.get(Calendar.DAY_OF_MONTH)
-            val periodCurrentMont:Int= cul.get(Calendar.MONTH)
-            val periodCurrentYear:Int= cul.get(Calendar.YEAR)
+        //The day the first period to the next period
+        val PeriodStart=LocalDate.of(mwaka,mwezi,siku)
+        val PeriodEnd=LocalDate.of(endYear,endMonth,endDay)
 
+        val Daysdifference=ChronoUnit.DAYS.between(PeriodStart,PeriodEnd)
 
-            //getting the future cycle days after I added the period Days
-            val endDay:Int = calee.get(Calendar.DAY_OF_MONTH)
-            val endMonth:Int= calee.get(Calendar.MONTH)
-            val endYear:Int= calee.get(Calendar.YEAR)
-
-
-
-            val PeriodEnd=LocalDate.of(endYear,endMonth,endDay)
-            val PeriodStart=LocalDate.of(periodCurrentYear,periodCurrentMont,periodCurrentDay)
-
-            val Daysdifference=ChronoUnit.DAYS.between(PeriodStart,PeriodEnd)
-            val loop:Int=Daysdifference.toInt()
-
-
-               for (i in 1..loop) {
-
-
-                     Toast.makeText(context,"\t"+i, Toast.LENGTH_LONG).show()
-
-
-                       textView1.setText("Day\t"+i)
-                       textView2.visibility=View.GONE
-                       textView3.setText("Period Time ")
+        Toast.makeText(context,"Next period starts in:\t"+Daysdifference.toInt()+"\tDays",Toast.LENGTH_LONG).show()
+        Toast.makeText(context,"Starts on:\t"+endDay.toInt()+"\tof\t"+endMonth.toInt(),Toast.LENGTH_LONG).show()
 
 
 
+        /* val loop:Int=Daysdifference.toInt()
 
 
-                 }
+            for (i in 1..loop) {
+
+
+                  Toast.makeText(context,"\t"+i, Toast.LENGTH_LONG).show()
+
+
+                    textView1.setText("Day\t"+i)
+                    textView2.visibility=View.GONE
+                    textView3.setText("Period Time ")
 
 
 
-        }
+
+
+              }*/
 
 
 
