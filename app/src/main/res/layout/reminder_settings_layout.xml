@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_margin="10dp"
+    android:padding="20dp"
+    android:layout_height="wrap_content">
+
+
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Turn On or Of Notifications"
+    android:textColor="@color/colorPrimary"
+    android:padding="6dp"
+    android:layout_margin="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"
+        android:layout_margin="5dp"/>
+
+
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/tipsSwitch"
+        android:text="Tips Notification"
+        android:padding="5dp"
+        android:layout_margin="5dp"/>
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:text="Ovulation Reminder"
+        android:id="@+id/ovulationSwitch"
+        android:layout_margin="5dp"/>
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="end|center"
+        android:padding="5dp"
+        android:text="Period Reminder"
+        android:id="@+id/periodSwitch"
+        android:layout_margin="5dp"/>
+
+  <!--  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn On or Of Notifications"
+        android:textColor="@color/colorPrimary"
+        android:padding="6dp"
+        android:layout_margin="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+            android:text="Tips Notifications"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="Tips contains information concerning your health"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/tipsSwitch"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="Ovulation Reminder"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+                android:text="Reminds You one day Prior to your Ovulation Day"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:id="@+id/ovulationSwitch"
+            android:layout_margin="5dp"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="Period Reminder"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_gravity="start|center"
+            android:layout_margin="5dp"
+            android:text="Reminds you one day prior to your Period to get prepared"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center"
+            android:padding="5dp"
+            android:id="@+id/periodSwitch"
+            android:layout_margin="5dp"/>
+
+
+    </LinearLayout>-->
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/primary_button"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:id="@+id/saveReminder"
+        android:text="Save"/>
+
+
+
+
+
+
+
+
+</LinearLayout>

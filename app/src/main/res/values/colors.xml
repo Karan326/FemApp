@@ -5,6 +5,9 @@
     <color name="colorAccent">#FF69B4</color>
     <color name="colorRed">#ED1717</color>
     <color name="viewBg">#FF69B4</color>
+    <color name="black">#000</color>
+    <color name="grey">#808080</color>
+    <color name="white">#fff</color>
 
 
 

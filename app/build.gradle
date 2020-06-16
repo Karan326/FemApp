@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -27,6 +29,8 @@ android {
         }
     }
 }
+def room_version = "1.1.1"
+def lifecycle_version = "2.1.0"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -58,6 +62,21 @@ dependencies {
     implementation 'com.andrewjapar.rangedatepicker:rangedatepicker:0.2.1'
     //Circular ImageViews
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //Glide Library
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    //Circular ImageView
+    implementation 'com.mikhaellopez:circularimageview:4.2.0'
+
+    //Room Components
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+
+    // Lifecycle components
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    kapt "android.arch.lifecycle:compiler:$lifecycle_version"
+
+    //Charts and Graphs
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 
 }

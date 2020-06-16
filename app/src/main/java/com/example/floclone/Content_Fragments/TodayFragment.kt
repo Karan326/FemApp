@@ -40,15 +40,8 @@ class TodayFragment : Fragment() {
             textView2=view.findViewById(R.id.periodProgressInfo)
             textView3=view.findViewById(R.id.predictionStatement)
 
-
-
-
-
         readData()
         saveStartUp()
-
-
-
 
 
         return view
@@ -224,8 +217,6 @@ class TodayFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun predictFuture(cycleDays: Int, days: Int) {
 
-        Toast.makeText(context,"Days are"+days.toInt(), Toast.LENGTH_LONG).show()
-
         //Showing the user which day of their period they are in
         val calculate:Calendar= Calendar.getInstance()
         calculate.add(Calendar.DATE,days)
@@ -279,29 +270,9 @@ class TodayFragment : Fragment() {
 
         val Daysdifference=ChronoUnit.DAYS.between(PeriodStart,PeriodEnd)
 
-        Toast.makeText(context,"Next period starts in:\t"+Daysdifference.toInt()+"\tDays",Toast.LENGTH_LONG).show()
-        Toast.makeText(context,"Starts on:\t"+endDay.toInt()+"\tof\t"+endMonth.toInt(),Toast.LENGTH_LONG).show()
+      /*  Toast.makeText(context,"Next period starts in:\t"+Daysdifference.toInt()+"\tDays",Toast.LENGTH_LONG).show()
+        Toast.makeText(context,"Starts on:\t"+endDay.toInt()+"\tof\t"+endMonth.toInt(),Toast.LENGTH_LONG).show()*/
 
-
-
-        /* val loop:Int=Daysdifference.toInt()
-
-
-            for (i in 1..loop) {
-
-
-                  Toast.makeText(context,"\t"+i, Toast.LENGTH_LONG).show()
-
-
-                    textView1.setText("Day\t"+i)
-                    textView2.visibility=View.GONE
-                    textView3.setText("Period Time ")
-
-
-
-
-
-              }*/
 
 
 
