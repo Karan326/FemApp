@@ -8,7 +8,6 @@ Users can also backup their data  <br>
 <image src="images/splash.png" width="400" height="800" />
 <image src="images/main.png" width="400" height="800" />
 <image src="images/date.png" width="400" height="800" />
-<image src="images/tips.png" width="400" height="800" />
 <image src="images/days.png" width="400" height="800" />
 <image src="images/cycledays.png" width="400" height="800" />
 <image src="images/dob.png" width="400" height="800" />
