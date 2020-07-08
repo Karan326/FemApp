@@ -112,7 +112,6 @@ class MoreFragment : Fragment() {
 
                   saveOvulationValue()
 
-
               }else {
                   removeOvulationValues()
 

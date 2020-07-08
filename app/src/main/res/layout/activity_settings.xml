@@ -51,8 +51,7 @@
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:textColor="@color/black" />
 
                     <View
                         android:layout_width="match_parent"
@@ -209,8 +208,7 @@
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:textColor="@color/black" />
 
                     <View
                         android:layout_width="match_parent"

@@ -1,6 +1,8 @@
 package com.example.floclone
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -11,6 +13,7 @@ import com.example.floclone.Content_Fragments.MoreFragment
 import com.example.floclone.Content_Fragments.TodayFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.harrywhewell.scrolldatepicker.DayScrollDatePicker
+import kotlin.system.exitProcess
 
 class UserMainScreen : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView
@@ -67,13 +70,29 @@ class UserMainScreen : AppCompatActivity() {
     override fun onBackPressed() {
 
 
-        intent= Intent(applicationContext,MainActivity::class.java)
-        startActivity(intent)
-        finish()
+      if (getData()){
 
 
+      }else{
+
+          intent= Intent(applicationContext,MainActivity::class.java)
+          startActivity(intent)
+          finish()
+
+      }
 
         super.onBackPressed()
+    }
+
+    fun  getData() : Boolean{
+
+        val startUpPreferences: SharedPreferences =applicationContext!!.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val isItSaved :Boolean= startUpPreferences.getBoolean("saved",false)
+
+        return isItSaved
+
+
+
     }
 
 }
