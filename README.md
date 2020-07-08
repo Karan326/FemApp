@@ -12,6 +12,10 @@ The app Notifies when the user has ovulation or before their periods begins.  <b
 <image src="images/dob.png" width="400" height="800" />
 <image src="images/today.png" width="400" height="800" />
 <image src="images/settings.png" width="400" height="800" />
+<image src="images/customsetting.png" width="400" height="800" />
+<image src="images/profile.png" width="400" height="800" />
+<image src="images/reminder.png" width="400" height="800" />
+<image src="images/reports.png" width="400" height="800" />
 
 
 
