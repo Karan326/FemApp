@@ -13,6 +13,7 @@ Users can also backup their data  <br>
 <image src="images/cycledays.png" width="400" height="800" />
 <image src="images/dob.png" width="400" height="800" />
 <image src="images/today.png" width="400" height="800" />
+<image src="images/tips.png" width="400" height="800" />
 <image src="images/settings.png" width="400" height="800" />
 <image src="images/customsetting.png" width="400" height="800" />
 <image src="images/profile.png" width="400" height="800" />
